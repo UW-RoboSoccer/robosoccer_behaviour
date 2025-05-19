@@ -7,6 +7,9 @@ class BehaviorTreeNode(Node):
         super().__init__('behavior_tree_node')
         self.create_subscription(String, '/world_state', self.world_state_callback, 10)
         self.behavior_pub = self.create_publisher(String, '/behavior_state', 10)  # TODO: Replace String with custom msg
+
+        self.get_logger().info('Behaviour node has started.')
+
         # TODO: Implement Behavior Tree logic
 
     def world_state_callback(self, msg):
